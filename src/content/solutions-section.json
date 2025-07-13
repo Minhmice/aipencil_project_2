@@ -1,0 +1,89 @@
+{
+  "header": {
+    "top": "Power",
+    "bottom": "bundle"
+  },
+  "sections": [
+    {
+      "pretitle": "Blueprint",
+      "title_part1": "Automated",
+      "title_part2": "Workflow",
+      "description": "Ask questions in everyday language and AI Pencil generates interactive dashboards, explains root-cause anomalies, and projects performance into the future so you can decide faster with confidence in the numbers.",
+      "image": {
+        "src": "https://cdn.builder.io/api/v1/image/assets%2Fc7921ed80066492eb5ec9b4aebf808c3%2F1a94cd59a4ef4155adfed96cb89b0acd?format=webp&width=800",
+        "alt": "AI Workflow Dashboard"
+      },
+      "features": [
+        {
+          "title": "Visual Builder, Zero Code",
+          "description": "Design processes visually with drag-and-drop nodes, set rules in plain language, and watch the canvas compile into RPA and n8n pipelines that deploy, version, and roll back with a click."
+        },
+        {
+          "title": "Predictive Auto-Scaling",
+          "description": "AI predicts workload spikes and scales resources in advance, ensuring smooth performance and lower costs—even during high-traffic periods like product launches, promotions, or seasonal peaks."
+        }
+      ]
+    },
+    {
+      "pretitle": "Apps",
+      "title_part1": "Connect",
+      "title_part2": "Anything",
+      "description": "With over 700 ready-made nodes and thousands of community templates, n8n lets you drag-drop apps, APIs, and AI models into event-driven workflows that deploy on-prem or cloud in minutes.",
+      "image": {
+        "src": "https://cdn.builder.io/api/v1/image/assets%2Fc7921ed80066492eb5ec9b4aebf808c3%2F1a94cd59a4ef4155adfed96cb89b0acd?format=webp&width=800",
+        "alt": "Integration Dashboard"
+      },
+      "features": [
+        {
+          "title": "800+ Pre-built Nodes",
+          "description": "Choose from hundreds of official and community nodes covering CRM, DevOps, finance, and AI; if an app is missing, add an HTTP Request or custom JavaScript node to extend instantly."
+        },
+        {
+          "title": "Template Library & One-Click Import",
+          "description": "Grab a starter from the 600-plus template library, plug in credentials, and hit &quot;Execute&quot; n8n imports variables, schedules triggers, and logs versions so teams iterate safely without reinventing workflows."
+        }
+      ]
+    },
+    {
+      "pretitle": "Action",
+      "title_part1": "Prospects",
+      "title_part2": "Promoters",
+      "title_conjunction": "to",
+      "description": "Unify marketing, sales, and support on one AI-driven workspace that scores leads, personalizes messages, and turns delighted customers into brand advocates who amplify growth without additional ad spend or effort.",
+      "image": {
+        "src": "https://cdn.builder.io/api/v1/image/assets%2Fc7921ed80066492eb5ec9b4aebf808c3%2F1a94cd59a4ef4155adfed96cb89b0acd?format=webp&width=800",
+        "alt": "Customer Journey Dashboard"
+      },
+      "features": [
+        {
+          "title": "AI Lead Scoring & Routing",
+          "description": "Predictive lead scoring analyzes engagement, firmographics, and intent signals, assigning priority ranks automatically and routing hot opportunities to the right rep before competitors even reply to the initial inquiry quickly."
+        },
+        {
+          "title": "Dynamic Offer Optimization",
+          "description": "AI analyses customer behaviour in real time, automatically tests price points and promos, then pushes the highest-converting offer to each segment, maximising revenue while preventing discount cannibalisation across channels."
+        }
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "pretitle": "Lifetime Value",
+      "title": "Secure Self-Hosting",
+      "description": "Deploy n8n in your own VPC or on-prem box with GDPR-ready encryption, granular credential vaults, and isolation options, ensuring sensitive business data never leaves your control while meeting compliance rules.",
+      "image": {
+        "src": "https://cdn.builder.io/api/v1/image/assets%2Fc7921ed80066492eb5ec9b4aebf808c3%2Fa0e20ffc548b4645abd28b7510991dd5?format=webp&width=800",
+        "alt": "Security Dashboard"
+      }
+    },
+    {
+      "pretitle": "Tickets",
+      "title": "Ready to Answer",
+      "description": "An AI-powered knowledge hub ingests policies, tickets, and manuals, updates itself with every new support interaction, and serves context-aware answers for each role—eliminating manual upkeep and shortening resolution times.",
+      "image": {
+        "src": "https://cdn.builder.io/api/v1/image/assets%2Fc7921ed80066492eb5ec9b4aebf808c3%2Fa0e20ffc548b4645abd28b7510991dd5?format=webp&width=800",
+        "alt": "AI Support Dashboard"
+      }
+    }
+  ]
+}

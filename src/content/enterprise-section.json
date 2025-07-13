@@ -1,0 +1,56 @@
+{
+  "pretitle": "Enterprise reinvention",
+  "title": "Bring agility to your enterprise",
+  "description": "Quickly build great payments experiences, improve performance, expand into new markets, and engage customers with subscriptions and marketplaces. Get expert integration guidance from our {professionalServices} team and {certifiedPartners}, and connect Stripe to Salesforce, SAP, and more through the {appMarketplace}.",
+  "cta": {
+    "text": "Explore AI Pencil for enterprises",
+    "link": "#"
+  },
+  "statistics": [
+    {
+      "value": "+5.5%",
+      "description": "Uplift from Stripe's Global Payments Infrastructure"
+    },
+    {
+      "value": "+1%",
+      "description": "Uplift from Adaptive Acceptance"
+    }
+  ],
+  "products": [
+    {
+      "name": "Payments",
+      "iconColor": "#32CAFD"
+    },
+    {
+      "name": "AI Chatbot",
+      "iconColor": "#41E88D"
+    }
+  ],
+  "caseStudy": {
+    "tag": "MOS/IC3",
+    "title": "TIN HỌC 10 EDUCATION",
+    "description": "See how 10 Education increased authorization rates by 10% with AI Pencil",
+    "link": {
+      "text": "Read story",
+      "url": "#"
+    }
+  },
+  "logos": [
+    {
+      "name": "10 EDUCATION",
+      "color": "text-gray-400"
+    },
+    {
+      "name": "VSTEP PLUS",
+      "color": "text-red-500"
+    },
+    {
+      "name": "APTIS ONE",
+      "color": "text-green-600"
+    },
+    {
+      "name": "GOUNI",
+      "color": "text-red-500"
+    }
+  ]
+}

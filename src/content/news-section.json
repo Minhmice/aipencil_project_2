@@ -1,0 +1,21 @@
+{
+  "title": "Product in the news",
+  "buttonText": "Browse all news",
+  "news": [
+    {
+      "title": "200+ hours saved per month",
+      "description": "200+ hours saved per month on routine IT and back-office tasks—based on real-world n8n automation case studies.",
+      "date": "February 8, 2023"
+    },
+    {
+      "title": "Up to 40% lower operating costs",
+      "description": "Up to 40 % lower operating costs for companies that integrate AI at scale.",
+      "date": "February 8, 2023"
+    },
+    {
+      "title": "65% of organisations",
+      "description": "65 % of organisations already use generative AI in at least one core process, signalling a new productivity baseline.",
+      "date": "February 8, 2023"
+    }
+  ]
+}
