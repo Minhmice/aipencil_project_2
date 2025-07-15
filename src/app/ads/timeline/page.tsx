@@ -1,3 +1,4 @@
+"use client";
 import { Metadata } from "next";
 import { AppSidebar } from "@/components/app-sidebar";
 import { SiteHeader } from "@/components/site-header";
@@ -28,7 +29,7 @@ import {
   ContextMenuTrigger,
 } from "@/components/ui/context-menu";
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: "Advertise Facebook",
   description: "AI Pencil",
 };
@@ -143,6 +144,7 @@ const Example = () => {
       <AppSidebar />
       <SidebarInset>
         <SiteHeader title="Advertise Facebook" />
+        <div className="p-2 w-full">
         <GanttProvider
           className="border"
           onAddItem={handleAddFeature}
@@ -241,7 +243,9 @@ const Example = () => {
             <GanttCreateMarkerTrigger onCreateMarker={handleCreateMarker} />
           </GanttTimeline>
         </GanttProvider>
+        </div>
       </SidebarInset>
     </SidebarProvider>
   );
 };
+export default Example;

@@ -14,9 +14,7 @@ export default function Page() {
       <AppSidebar />
       <SidebarInset>
         <SiteHeader title="Advertise Facebook" />
-        <div className="p-8">
-          <LinkCardGrid />
-        </div>
+        
       </SidebarInset>
     </SidebarProvider>
   );
