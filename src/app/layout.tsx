@@ -8,7 +8,7 @@ const montserrat = Montserrat({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: "AI Pencil",
   description: "AI Pencil",
 };

@@ -18,7 +18,7 @@ export default function Page() {
         } as React.CSSProperties
       }
     >
-      <AppSidebar variant="inset" />
+      <AppSidebar/>
       <SidebarInset>
         <SiteHeader title="Advertise Facebook" />
         <div className="p-8">

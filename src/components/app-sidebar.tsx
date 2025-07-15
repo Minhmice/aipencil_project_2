@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import clsx from "clsx";
+import { NavUser } from "@/components/nav-user";
 import {
   IconDashboard,
   IconAd,
@@ -34,6 +34,11 @@ import { ChevronRight } from "lucide-react";
 
 // Navigation items configuration
 const navItems = {
+  user: {
+    name: "minhmice",
+    email: "trantueminh35@gmail.com",
+    avatar: "/avatars/shadcn.jpg",
+  },
   main: [
     { title: "Dashboard", url: "/dashboard", icon: IconDashboard },
     {
@@ -50,16 +55,12 @@ const navItems = {
     { title: "Analytics", url: "/analytics", icon: IconChartBar },
     { title: "Saved Ads", url: "/saved-ads", icon: IconFolder },
   ],
-  secondary: [
-    { title: "Settings", url: "/settings", icon: IconSettings },
-    { title: "Get Help", url: "/help", icon: IconHelp },
-    { title: "Search", url: "/search", icon: IconSearch },
-  ],
 };
 
 // Reusable NavItem component
 function NavItem({ item, path }: { item: any; path: string }) {
-  const isActive = path === item.url || (item.items && path.startsWith(item.url));
+  const isActive =
+    path === item.url || (item.items && path.startsWith(item.url));
 
   if (item.items) {
     return (
@@ -67,9 +68,9 @@ function NavItem({ item, path }: { item: any; path: string }) {
         <SidebarGroup>
           <SidebarGroupLabel
             asChild
-            className="group/label text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+            className="group/label text-sidebar-foreground hover:bg-sidebar-accent px-8 hover:text-sidebar-accent-foreground"
           >
-            <CollapsibleTrigger className="w-full flex items-center justify-between px-2 text-xl">
+            <CollapsibleTrigger className="w-full flex items-center justify-between  text-xl">
               <div className="flex items-center gap-2">
                 <item.icon className="h-8 w-8" />
                 <span className="font-semibold">{item.title}</span>
@@ -78,7 +79,7 @@ function NavItem({ item, path }: { item: any; path: string }) {
             </CollapsibleTrigger>
           </SidebarGroupLabel>
           <CollapsibleContent>
-            <SidebarGroupContent className="ml-2 border-l-2 border-gray-200 pl-2">
+            <SidebarGroupContent className="ml-12 border-l-2 border-gray-200">
               <SidebarMenu>
                 {item.items.map((sub: any) => (
                   <NavItem key={sub.title} item={sub} path={path} />
@@ -94,7 +95,7 @@ function NavItem({ item, path }: { item: any; path: string }) {
   return (
     <SidebarMenuItem>
       <SidebarMenuButton asChild isActive={isActive}>
-        <Link href={item.url} className="flex items-center gap-2 p-2 text-xl">
+        <Link href={item.url} className="flex items-center gap-2 text-xl">
           {item.icon && <item.icon className="h-8 w-8" />}
           <span>{item.title}</span>
         </Link>
@@ -105,6 +106,7 @@ function NavItem({ item, path }: { item: any; path: string }) {
 
 export function AppSidebar() {
   const path = usePathname();
+  const { user } = navItems;
 
   return (
     <Sidebar collapsible="offcanvas" className="bg-red-50">
@@ -112,11 +114,8 @@ export function AppSidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
-              <Link
-                href="/"
-                className="flex items-center gap-2 px-4 py-6 mb-4 rounded"
-              >
-                <div className="w-6 h-6 md:w-12 md:h-12">
+              <Link href="/" className="flex rounded shadow-sm ">
+                <div className="w-6 h-6 md:w-10 md:h-10">
                   <svg
                     width="800"
                     height="800"
@@ -158,15 +157,9 @@ export function AppSidebar() {
             <NavItem key={item.title} item={item} path={path} />
           ))}
         </SidebarMenu>
-        <SidebarMenu className="mt-auto list-none">
-          {navItems.secondary.map((item) => (
-            <NavItem key={item.title} item={item} path={path} />
-          ))}
-        </SidebarMenu>
       </SidebarContent>
-
-      <SidebarFooter className="px-4 py-3">
-        {/* your NavUser here */}
+      <SidebarFooter>
+        <NavUser user={user} />
       </SidebarFooter>
     </Sidebar>
   );
