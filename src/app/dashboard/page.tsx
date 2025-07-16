@@ -19,7 +19,7 @@ export default function Page() {
         } as React.CSSProperties
       }
     >
-      <AppSidebar variant="inset" />
+      <AppSidebar />
       <SidebarInset>
         <SiteHeader title="Dashboard" />
         <div className="h-screen flex flex-col">
