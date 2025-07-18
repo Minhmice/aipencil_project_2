@@ -1,9 +1,12 @@
 "use client";
 
+// --- IMPORTS ---
 import * as React from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { NavUser } from "@/components/nav-user";
+import Link from "next/link"; // Component Link của Next.js để điều hướng phía client
+import { usePathname } from "next/navigation"; // Hook để lấy đường dẫn URL hiện tại
+import { NavUser } from "@/components/nav-user"; // Component hiển thị thông tin người dùng
+
+// Import các icon từ thư viện @tabler/icons-react
 import {
   IconDashboard,
   IconAd,
@@ -13,6 +16,8 @@ import {
   IconHelp,
   IconSearch,
 } from "@tabler/icons-react";
+
+// Import các component con từ hệ thống Sidebar đã được tạo
 import {
   Sidebar,
   SidebarHeader,
@@ -25,14 +30,18 @@ import {
   SidebarGroupContent,
   SidebarFooter,
 } from "@/components/ui/sidebar";
+
+// Import component Collapsible để tạo các mục menu có thể đóng/mở
 import {
   Collapsible,
   CollapsibleTrigger,
   CollapsibleContent,
 } from "@/components/ui/collapsible";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react"; // Icon mũi tên
 
-// Navigation items configuration
+// --- CONFIGURATION ---
+// Cấu hình dữ liệu cho các mục điều hướng và thông tin người dùng.
+// Việc tách ra một object riêng giúp dễ dàng quản lý và thay đổi sau này.
 const navItems = {
   user: {
     name: "minhmice",
@@ -45,6 +54,7 @@ const navItems = {
       title: "Ads",
       url: "/ads",
       icon: IconAd,
+      // `items` cho biết đây là một mục cha có các mục con
       items: [
         { title: "Ad Library", url: "/ads/library" },
         { title: "Creative Hub", url: "/ads/creative-hub" },
@@ -57,30 +67,36 @@ const navItems = {
   ],
 };
 
-// Reusable NavItem component
+// --- REUSABLE NAV ITEM COMPONENT ---
+// Một component con có thể đệ quy để render các mục menu và menu con của chúng.
 function NavItem({ item, path }: { item: any; path: string }) {
+  // Kiểm tra xem mục này có đang được active hay không.
+  // Active khi đường dẫn hiện tại trùng khớp hoặc là con của URL mục này.
   const isActive =
     path === item.url || (item.items && path.startsWith(item.url));
 
+  // Trường hợp 1: Mục có các mục con (item.items tồn tại)
   if (item.items) {
     return (
+      // Sử dụng Collapsible để tạo hiệu ứng đóng/mở
       <Collapsible defaultOpen className="group/collapsible">
         <SidebarGroup>
-          <SidebarGroupLabel
-            asChild
-            className="group/label text-sidebar-foreground hover:bg-sidebar-accent px-8 hover:text-sidebar-accent-foreground"
-          >
-            <CollapsibleTrigger className="w-full flex items-center justify-between  text-xl">
+          <SidebarGroupLabel asChild className="... hover:bg-sidebar-accent ...">
+            {/* CollapsibleTrigger là phần tử được click để đóng/mở */}
+            <CollapsibleTrigger className="w-full flex items-center justify-between text-xl">
               <div className="flex items-center gap-2">
                 <item.icon className="h-8 w-8" />
                 <span className="font-semibold">{item.title}</span>
               </div>
+              {/* Icon mũi tên sẽ xoay khi menu được mở */}
               <ChevronRight className="ml-auto h-4 w-4 transition-transform group-data-[state=open]/collapsible:rotate-90" />
             </CollapsibleTrigger>
           </SidebarGroupLabel>
+          {/* CollapsibleContent chứa các mục menu con, sẽ được ẩn/hiện */}
           <CollapsibleContent>
             <SidebarGroupContent className="ml-12 border-l-2 border-gray-200">
               <SidebarMenu>
+                {/* Đệ quy: Render các mục con bằng chính component NavItem */}
                 {item.items.map((sub: any) => (
                   <NavItem key={sub.title} item={sub} path={path} />
                 ))}
@@ -92,6 +108,7 @@ function NavItem({ item, path }: { item: any; path: string }) {
     );
   }
 
+  // Trường hợp 2: Mục không có mục con
   return (
     <SidebarMenuItem>
       <SidebarMenuButton asChild isActive={isActive}>
@@ -104,42 +121,26 @@ function NavItem({ item, path }: { item: any; path: string }) {
   );
 }
 
+// --- MAIN APP SIDEBAR COMPONENT ---
+// Đây là component chính được export, lắp ráp các phần lại với nhau.
 export function AppSidebar() {
+  // Lấy đường dẫn hiện tại để xác định mục menu nào đang active.
   const path = usePathname();
-  const { user } = navItems;
+  const { user } = navItems; // Lấy thông tin người dùng từ config
 
   return (
+    // Sử dụng component Sidebar đã được định nghĩa ở file `sidebar.tsx`
+    // collapsible="offcanvas": trên desktop, sidebar sẽ trượt ra/vào từ cạnh màn hình.
     <Sidebar collapsible="offcanvas" className="bg-red-50">
       <SidebarHeader>
+        {/* Phần Logo và tên ứng dụng */}
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
               <Link href="/" className="flex rounded shadow-sm ">
                 <div className="w-6 h-6 md:w-10 md:h-10">
-                  <svg
-                    width="800"
-                    height="800"
-                    viewBox="0 0 800 800"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-full h-full"
-                  >
-                    <path
-                      d="M538.767 186.026H637L587.884 137L538.767 186.026Z"
-                      className="fill-red-700"
-                    />
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M538.767 615V590.487H637V615H538.767Z"
-                      className="fill-red-700"
-                    />
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M317.744 578.231L415.977 480.179H538.767V333.103L256.349 615H109L526.488 198.282H637V578.231H317.744ZM600.163 565.974H612.442V210.538H600.163V565.974ZM563.326 565.974H575.605V210.538H563.326V565.974Z"
-                      className="fill-red-700"
-                    />
+                  <svg /* ... SVG logo ... */ >
+                    {/* ... paths ... */}
                   </svg>
                 </div>
                 <span className="font-semibold text-red-700 text-xl">
@@ -151,13 +152,17 @@ export function AppSidebar() {
         </SidebarMenu>
       </SidebarHeader>
 
+      {/* Phần nội dung chính của sidebar, chứa menu */}
       <SidebarContent className="gap-0">
         <SidebarMenu className="list-none">
+          {/* Render các mục menu chính bằng cách lặp qua `navItems.main` */}
           {navItems.main.map((item) => (
             <NavItem key={item.title} item={item} path={path} />
           ))}
         </SidebarMenu>
       </SidebarContent>
+      
+      {/* Phần chân của sidebar, chứa thông tin người dùng */}
       <SidebarFooter>
         <NavUser user={user} />
       </SidebarFooter>
